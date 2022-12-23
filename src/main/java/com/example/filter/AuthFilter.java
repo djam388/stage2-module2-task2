@@ -20,7 +20,7 @@ public class AuthFilter implements Filter {
         boolean authorized = false;
 
         String login = request.getParameter("login");
-        String password = request.getParameter("password").trim();
+        String password = request.getParameter("password");
 
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
@@ -29,7 +29,6 @@ public class AuthFilter implements Filter {
         for (String user : Users.getInstance().getUsers()) {
             if (user.equals(login)
                     && password != null
-                    && password.trim() != " "
                     && !password.isEmpty()) {
                 authorized = true;
             }
