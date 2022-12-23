@@ -27,7 +27,7 @@ public class AuthFilter implements Filter {
 
 
         for (String user : Users.getInstance().getUsers()) {
-            if (user.equals(login) && password != null) {
+            if (user.equals(login) && password != null && !password.isEmpty()) {
                 authorized = true;
             }
         }
